@@ -1,54 +1,30 @@
 // questions array
 const askAllQuestion = [
 	{
-		question: "First Question",
-		options: [
-			"First Question's first option",
-			"First Question's second option",
-			"First Question's third option",
-			"First Question's fourth option",
-		],
-		answer: "First Question's fourth option",
+		question: "Commonly used JS data types DON'T include:",
+		options: ["Strings", "Numbers", "Booleans", "Alerts"],
+		answer: "Alerts",
 	},
 	{
-		question: "Second Question",
-		options: [
-			"Second Question's first option",
-			"Second Question's second option",
-			"Second Question's third option",
-			"Second Question's fourth option",
-		],
-		answer: "Second Question's fourth option",
+		question: "A condition in an if/else statement is enclosed with:",
+		options: ["Quotes", "Parentheses", "Square brackets", "Curly Brackets"],
+		answer: "Parentheses",
 	},
 	{
-		question: "Third Question",
-		options: [
-			"Third Question's first option",
-			"Third Question's second option",
-			"Third Question's third option",
-			"Third Question's fourth option",
-		],
-		answer: "Third Question's fourth option",
+		question: "In JS, arrays can be used to store ____",
+		options: ["Numbers", "Strings", "Boolens", "All of the above"],
+		answer: "All of the above",
 	},
 	{
-		question: "Fourth Question",
-		options: [
-			"Fourth Question's first option",
-			"Fourth Question's second option",
-			"Fourth Question's third option",
-			"Fourth Question's fourth option",
-		],
-		answer: "Fourth Question's fourth option",
+		question:
+			"String values must be enclosed within ____ when being assigned to variables",
+		options: ["Curly Brackets", "Commas", "Quotes", "Parenthesis"],
+		answer: "Quotes",
 	},
 	{
-		question: "Fifth Question",
-		options: [
-			"Fifth Question's first option",
-			"Fifth Question's second option",
-			"Fifth Question's third option",
-			"Fifth Question's fourth option",
-		],
-		answer: "Fifth Question's fourth option",
+		question: "The instructions for a function are enclosed within ____.",
+		options: ["Quotes", "Parentheses", "Square Brackets", "Curly Brackets"],
+		answer: "Curly Brackets",
 	},
 ];
 let currentQuestion = 0;
