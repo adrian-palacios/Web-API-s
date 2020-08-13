@@ -1,5 +1,4 @@
 // questions array
-
 const askAllQuestion = [
 	{
 		question: "First Question",
@@ -52,38 +51,30 @@ const askAllQuestion = [
 		answer: "Fifth Question's fourth option",
 	},
 ];
-
 let currentQuestion = 0;
 let score = 0;
 let totalTime = 60;
 let currentAnswer = "";
-
+let a;
 const start = $("<button>").text("Start").addClass("btn btn-primary start");
-
-$("#result").html(start);
-
+$("#start").append(start);
 // timer function
-
 function setTimer() {
-	let a = setInterval(startTimer, 1000);
+	a = setInterval(startTimer, 1000);
 	function startTimer() {
 		totalTime--;
-		$("#timer").text(totalTime);
+		$("#timer").text(`${totalTime} seconds left!`);
 	}
 }
-
 $(".start").click(function () {
-	$(".start").hide();
+	$("#start").hide();
 	setTimer();
 	showQuestion();
 });
-
 // question function
-
 function showQuestion() {
 	$("#question").text(askAllQuestion[currentQuestion].question);
 	currentAnswer = askAllQuestion[currentQuestion].answer;
-
 	for (
 		let lap = 0;
 		lap < askAllQuestion[currentQuestion].options.length;
@@ -96,35 +87,34 @@ function showQuestion() {
 		$("#options").append(option);
 	}
 }
-
 $(document).on("click", ".selectedAnswer", function () {
 	let choosedAnswer = $(this).val();
 	if (choosedAnswer === currentAnswer) {
 		$("#result").text("Correct!");
-
 		score++;
 		checkGame();
 	} else {
 		$("#result").text("Wrong Answer!");
-
 		score--;
 		checkGame();
 	}
 });
-
-// end of game function
-
+// end of the game function
 function checkGame() {
-	if (currentQuestion < 5 || totalTime > 0) {
+	if (currentQuestion >= 4 || totalTime <= 0) {
+		$("#question").text("Game Over!");
+		$("#options").empty();
+		$("#result").text(`Your total score is ${score}`);
+		$("#start").show();
+		clearInterval(a);
+		currentQuestion = 0;
+		score = 0;
+		totalTime = 60;
+		currentAnswer = "";
+	} else {
 		currentQuestion++;
 		$("#question").empty();
 		$("#options").empty();
 		showQuestion();
-		clearInterval(a);
-	} else {
-		$("#question").text("Game Over!");
-		$("#options").empty();
-		$("#result").text(`Your total score is ${score}`);
-		$(".start").show();
 	}
 }
